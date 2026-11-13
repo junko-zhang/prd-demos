@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>编辑任务页 - 打卡小程序 原型</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/app.css">
+</head>
+<body>
+  <div class="phone-frame" style="padding-bottom:140px">
+    <div class="nav-bar">
+      <a class="nav-bar__back" href="javascript:history.back()">‹ 返回</a>
+      <span class="nav-bar__title">编辑任务</span>
+      <span style="width:48px"></span>
+    </div>
+
+    <div class="field">
+      <div class="field__label"><span>任务名称</span><span>8 / 20</span></div>
+      <input class="input" value="阅读 30 分钟" readonly>
+    </div>
+
+    <div class="field">
+      <div class="field__label"><span>打卡频率</span><span>已选 每天</span></div>
+      <div class="chips"><span class="chip on">每天</span><span class="chip">工作日</span><span class="chip">自定义</span></div>
+    </div>
+
+    <div class="cell-group">
+      <div class="cell"><span>每日提醒</span><span class="switch on"></span></div>
+      <div class="cell"><span>提醒时间</span><span class="cell__v">21:00 ›</span></div>
+      <div class="cell"><span>暂停任务</span><span class="switch"></span></div>
+    </div>
+
+    <div class="tip">修改频率后，从明天开始生效，历史打卡记录不受影响</div>
+
+    <div class="sticky-bottom">
+      <div class="sheet-btns">
+        <div class="btn btn--primary" data-toast="已保存">保存修改</div>
+        <div class="btn btn--danger" data-open="#delete">删除任务</div>
+      </div>
+    </div>
+
+    <!-- 删除确认弹窗 -->
+    <div class="modal-overlay center" id="delete">
+      <div class="modal-content" style="border-radius:26px;margin:0 32px">
+        <div class="sheet-title">删除「阅读 30 分钟」？</div>
+        <p class="sheet-sub">删除后，23 天打卡记录、心得和图片都会一并清除，且无法恢复。<br>只想休息一阵？可以改为「暂停任务」。</p>
+        <div class="sheet-btns">
+          <div class="btn btn--danger" data-close data-toast="任务已删除">确认删除</div>
+          <div class="btn btn--ghost" data-close>再想想</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/interaction.js"></script>
+</body>
+</html>

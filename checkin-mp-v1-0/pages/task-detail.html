@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>任务详情页 - 打卡小程序 原型</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/app.css">
+  <style>.cal__d{height:34px;line-height:34px}.cal__d.miss{line-height:32px}.cal__d.today{line-height:30px}</style>
+</head>
+<body>
+  <div class="phone-frame" style="padding-bottom:24px">
+    <div class="nav-bar">
+      <a class="nav-bar__back" href="javascript:history.back()">‹ 返回</a>
+      <span class="nav-bar__title">阅读 30 分钟</span>
+      <span class="nav-bar__action text-primary" data-open="#poster">分享</span>
+    </div>
+
+    <div class="task" style="margin-top:var(--spacing-xs)">
+      <div class="task__icon">📖</div>
+      <div class="grow">
+        <div class="task__name">阅读 30 分钟</div>
+        <div class="task__meta">每天 · 21:00 提醒 · 11月1日开始</div>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><b>3</b><span>当前连续（天）</span></div>
+      <div class="kpi"><b>9</b><span>最长连续（天）</span></div>
+      <div class="kpi"><b>23</b><span>累计打卡（天）</span></div>
+    </div>
+
+    <div class="cal-wrap">
+      <div class="cal-head"><span>‹</span><span>2026年11月</span><span class="text-tertiary">›</span></div>
+      <div class="cal">
+        <div class="cal__w">一</div><div class="cal__w">二</div><div class="cal__w">三</div><div class="cal__w">四</div><div class="cal__w">五</div><div class="cal__w">六</div><div class="cal__w">日</div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div class="cal__d done">1</div>
+        <div class="cal__d done">2</div>
+        <div class="cal__d miss" data-open="#makeup">3</div>
+        <div class="cal__d done">4</div>
+        <div class="cal__d done">5</div>
+        <div class="cal__d done today">6</div>
+        <div class="cal__d off">7</div><div class="cal__d off">8</div>
+        <div class="cal__d off">9</div><div class="cal__d off">10</div><div class="cal__d off">11</div><div class="cal__d off">12</div><div class="cal__d off">13</div><div class="cal__d off">14</div><div class="cal__d off">15</div>
+        <div class="cal__d off">16</div><div class="cal__d off">17</div><div class="cal__d off">18</div><div class="cal__d off">19</div><div class="cal__d off">20</div><div class="cal__d off">21</div><div class="cal__d off">22</div><div class="cal__d off">23</div><div class="cal__d off">24</div><div class="cal__d off">25</div><div class="cal__d off">26</div><div class="cal__d off">27</div><div class="cal__d off">28</div><div class="cal__d off">29</div><div class="cal__d off">30</div>
+      </div>
+      <div class="legend"><span><i class="dot"></i>已打卡</span><span><i class="dot dot--miss"></i>漏打（可补卡）</span><span><i class="dot dot--todo"></i>未到</span></div>
+    </div>
+
+    <div class="tip">11月3日漏打了，点红色日期补卡。本月还可补卡 3 次，每天最多补 1 次</div>
+
+    <!-- 补卡弹窗 -->
+    <div class="modal-overlay" id="makeup">
+      <div class="modal-content">
+        <div class="sheet-title">补打 11月3日 的卡？</div>
+        <p class="sheet-sub">本月剩余补卡次数 3 / 3，今天还可补 1 次<br>补卡后，当前连续天数将从 3 天变为 6 天</p>
+        <div class="sheet-btns">
+          <div class="btn btn--primary" data-close data-toast="补卡成功，当前连续 6 天">确认补卡</div>
+          <div class="btn btn--ghost" data-close>取消</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分享海报弹窗 -->
+    <div class="modal-overlay center" id="poster">
+      <div class="modal-content" style="border-radius:26px;margin:0 28px">
+        <div class="poster">
+          <div style="font-size:var(--font-size-sm);opacity:.9">我在坚持</div>
+          <div class="h2" style="color:inherit;margin:4px 0">阅读 30 分钟</div>
+          <b>3 天</b>
+          <div style="font-size:var(--font-size-sm);opacity:.9;margin-top:4px">已累计打卡 23 天 · 最长连续 9 天</div>
+        </div>
+        <div class="sheet-btns">
+          <div class="btn btn--primary" data-close data-toast="海报已保存到相册">保存到相册</div>
+          <div class="btn btn--ghost" data-close>关闭</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/interaction.js"></script>
+</body>
+</html>
