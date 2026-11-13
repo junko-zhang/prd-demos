@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit payment - Daily Payments prototype</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .amt-wrap { padding: 24px 16px 8px; }
+    .amt-label { font-size: 12px; color: var(--color-text-tertiary); margin-bottom: 8px; }
+    .amt-line { display: flex; align-items: baseline; gap: 8px; border-bottom: 2px solid var(--color-primary); padding-bottom: 8px; }
+    .amt-cur { font-size: 24px; font-weight: 600; }
+    .amt-input { flex: 1; font-size: 30px; font-weight: 700; border: none; background: transparent; font-variant-numeric: tabular-nums; }
+    .frow { display: flex; align-items: center; justify-content: space-between; padding: 16px; border-bottom: 1px solid var(--color-border-light); background-color: var(--color-bg-base); }
+    .frow__label { font-size: 14px; color: var(--color-text-secondary); flex: none; margin-right: 12px; }
+    .frow .input { border: none; background: transparent; text-align: right; font-size: 14px; padding: 0; }
+    .fgroup { margin-top: 12px; }
+    .save-wrap { padding: 24px 16px; }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="nav-bar">
+      <a class="nav-bar__back" href="detail.html">‹ Back</a>
+      <span class="nav-bar__title">Edit payment</span>
+      <span style="width:48px"></span>
+    </div>
+
+    <div class="amt-wrap">
+      <div class="amt-label">AMOUNT (CNY)</div>
+      <div class="amt-line">
+        <span class="amt-cur">¥</span>
+        <input class="amt-input" id="amount" inputmode="decimal" value="32.00" aria-label="Amount">
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <div class="frow">
+        <span class="frow__label">Category</span>
+        <span style="font-size:14px;font-weight:500">Food ▾</span>
+      </div>
+      <div class="frow">
+        <span class="frow__label">Note</span>
+        <input class="input" maxlength="50" value="Team lunch, paid by mobile wallet">
+      </div>
+      <div class="frow">
+        <span class="frow__label">When</span>
+        <span style="font-size:14px;font-weight:500">Fri, 13 Nov · 12:35</span>
+      </div>
+    </div>
+
+    <div class="save-wrap">
+      <div class="btn btn--primary" data-go="home.html?s=saved" style="cursor:pointer">Save changes</div>
+      <a class="btn btn--ghost" href="detail.html" data-flow-ignore style="justify-content:center">Cancel</a>
+    </div>
+  </div>
+  <script src="../assets/interaction.js"></script>
+</body>
+</html>

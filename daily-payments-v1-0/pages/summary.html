@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly summary - Daily Payments prototype</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .hero { margin: 16px; padding: 20px; border-radius: 8px; background-color: var(--color-primary-bg); border: 1px solid var(--color-primary-light); }
+    .hero__label { font-size: 12px; color: var(--color-text-secondary); }
+    .hero__total { font-size: 30px; font-weight: 700; margin: 6px 0; font-variant-numeric: tabular-nums; }
+    .hero__sub { font-size: 12px; color: var(--color-text-secondary); }
+    .bar-row { padding: 10px 0; }
+    .bar-top { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px; }
+    .bar-top__amt { font-variant-numeric: tabular-nums; font-weight: 500; }
+    .bar-track { height: 8px; border-radius: 9999px; background-color: var(--color-border-light); overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 9999px; background-color: var(--color-primary); }
+    .bd { padding-bottom: 70px; }
+    .month { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 12px; font-size: 14px; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="phone-frame bd">
+    <div class="nav-bar">
+      <span class="nav-bar__title">Monthly summary</span>
+      <a class="nav-bar__action" href="home.html" data-flow-ignore>Nov 2026 ▾</a>
+    </div>
+
+    <div data-state-not="empty">
+      <div class="month">November 2026</div>
+
+      <div class="hero">
+        <div class="hero__label">TOTAL SPENT</div>
+        <div class="hero__total">¥ 1,248.60</div>
+        <div class="hero__sub">42 payments · 1–13 Nov · down 8% vs October</div>
+      </div>
+
+      <div class="card">
+        <div class="card__title">By category</div>
+        <div class="bar-row">
+          <div class="bar-top"><span>🍜 Food</span><span class="bar-top__amt">¥520.00 · 42%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:42%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-top"><span>🛍️ Shopping</span><span class="bar-top__amt">¥312.40 · 25%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-top"><span>🚇 Transport</span><span class="bar-top__amt">¥187.30 · 15%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:15%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-top"><span>🏠 Housing</span><span class="bar-top__amt">¥150.00 · 12%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:12%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-top"><span>🎬 Entertainment</span><span class="bar-top__amt">¥78.90 · 6%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:6%"></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title">This month at a glance</div>
+        <p style="font-size:14px;color:var(--color-text-secondary)">Highest single payment: ¥320.00 · Housing · 5 Nov</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);margin-top:6px">Average per day: ¥96.05</p>
+      </div>
+    </div>
+
+    <div class="empty-state hidden" data-state="empty">
+      <div class="empty-state__icon">📊</div>
+      <div class="empty-state__text">No payments this month<br><span style="font-size:12px">Switch month to see other records</span></div>
+      <div style="width:220px;margin-top:16px"><a class="btn btn--primary" href="summary.html">Back to November</a></div>
+    </div>
+
+    <div class="tab-bar">
+      <a class="tab-bar__item" href="home.html"><span>🏠</span>Home</a>
+      <div class="tab-bar__item active"><span>📊</span>Summary</div>
+    </div>
+  </div>
+  <script src="../assets/interaction.js"></script>
+</body>
+</html>

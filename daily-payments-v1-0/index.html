@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily Payments V1.0 Prototype index</title><link rel="stylesheet" href="assets/style.css">
+<style>
+body{max-width:960px;margin:0 auto;padding:28px 20px 60px;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+h1{font-size:24px;margin:0 0 4px}.idx-sub{color:#6b7280;font-size:13px;margin-bottom:8px}
+.idx-h{font-size:17px;margin:26px 0 12px}.idx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.idx-card{margin:0!important;padding:14px 16px}.idx-main{font-size:16px;font-weight:600;color:var(--color-primary,#1677ff);text-decoration:none}
+.idx-sec{margin-left:8px;font-size:12px;color:#9ca3af}.idx-file{font-size:12px;color:#9ca3af;margin:4px 0 8px;font-family:ui-monospace,Menlo,monospace}
+.idx-chips{display:flex;flex-wrap:wrap;gap:6px}.idx-chips .tag{text-decoration:none}
+</style></head>
+<body><h1>Daily Payments V1.0 Prototype index</h1>
+<div class="idx-sub">6 page files · generated from spec/screens.json (run prdkit.py index to refresh after adding or removing pages)</div>
+<h2 class="idx-h">3.1 Log a daily payment</h2><div class="idx-grid"><div class="card idx-card"><a class="idx-main" href="pages/home.html">Daily list</a><span class="idx-sec">3.1.3.1</span><div class="idx-file">pages/home.html</div><div class="idx-chips"><a class="tag tag--primary" href="pages/home.html?s=empty">State: No payments today</a><a class="tag tag--primary" href="pages/home.html?s=saved">State: Payment saved</a></div></div><div class="card idx-card"><a class="idx-main" href="pages/add.html">Add payment</a><span class="idx-sec">3.1.3.3</span><div class="idx-file">pages/add.html</div><div class="idx-chips"><span class="tag tag--primary" title="Opens after a tap on the page">Popup: Category picker</span><a class="tag tag--primary" href="pages/add.html?s=invalid">State: Amount error</a></div></div></div><h2 class="idx-h">3.2 Review and manage payments</h2><div class="idx-grid"><div class="card idx-card"><a class="idx-main" href="pages/detail.html">Payment detail</a><span class="idx-sec">3.2.3.1</span><div class="idx-file">pages/detail.html</div><div class="idx-chips"><span class="tag tag--primary" title="Opens after a tap on the page">Popup: Confirm delete</span></div></div><div class="card idx-card"><a class="idx-main" href="pages/edit.html">Edit payment</a><span class="idx-sec">3.2.3.2</span><div class="idx-file">pages/edit.html</div></div><div class="card idx-card"><a class="idx-main" href="pages/home.html?s=deleted">Payment deleted</a><span class="idx-sec">3.2.3.4</span><div class="idx-file">pages/home.html</div></div><div class="card idx-card"><a class="idx-main" href="pages/summary.html">Monthly summary</a><span class="idx-sec">3.2.3.5</span><div class="idx-file">pages/summary.html</div><div class="idx-chips"><a class="tag tag--primary" href="pages/summary.html?s=empty">State: No data this month</a></div></div></div>
+</body></html>

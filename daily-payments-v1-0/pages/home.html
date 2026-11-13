@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily list - Daily Payments prototype</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .hero { margin: 16px; padding: 20px; border-radius: 8px; background-color: var(--color-primary-bg); border: 1px solid var(--color-primary-light); }
+    .hero__label { font-size: 12px; color: var(--color-text-secondary); }
+    .hero__total { font-size: 30px; font-weight: 700; margin: 6px 0; font-variant-numeric: tabular-nums; }
+    .hero__sub { font-size: 12px; color: var(--color-text-secondary); }
+    .sec { padding: 8px 16px 0; font-size: 12px; color: var(--color-text-tertiary); }
+    .row { display: flex; align-items: center; gap: 12px; }
+    .row__icon { width: 40px; height: 40px; border-radius: 8px; background-color: var(--color-primary-bg); display: flex; align-items: center; justify-content: center; font-size: 20px; flex: none; }
+    .row__main { flex: 1; min-width: 0; }
+    .row__name { font-size: 14px; font-weight: 500; }
+    .row__meta { font-size: 12px; color: var(--color-text-tertiary); margin-top: 2px; }
+    .row__amt { font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .bd { padding-bottom: 90px; }
+    .empty-cta { width: 220px; margin: 16px auto 0; }
+    .fab { font-size: 30px; font-weight: 300; }
+  </style>
+</head>
+<body>
+  <div class="phone-frame bd">
+    <div class="nav-bar">
+      <span class="nav-bar__title">Daily Payments</span>
+      <span class="nav-bar__action">Nov 2026</span>
+    </div>
+
+    <div data-state-not="empty">
+      <div class="hero" data-state-not="deleted">
+        <div class="hero__label">Today · Fri, 13 Nov</div>
+        <div class="hero__total">¥ 86.50</div>
+        <div class="hero__sub">3 payments · ¥ 1,248.60 spent this month</div>
+      </div>
+      <div class="hero hidden" data-state="deleted">
+        <div class="hero__label">Today · Fri, 13 Nov</div>
+        <div class="hero__total">¥ 54.50</div>
+        <div class="hero__sub">2 payments · ¥ 1,216.60 spent this month</div>
+      </div>
+
+      <div class="sec">TODAY</div>
+
+      <a class="card row" href="detail.html" data-state-not="deleted">
+        <div class="row__icon">🍜</div>
+        <div class="row__main">
+          <div class="row__name">Lunch at Green Bowl</div>
+          <div class="row__meta">12:35 · Food</div>
+        </div>
+        <div class="row__amt">¥32.00</div>
+      </a>
+      <a class="card row" href="detail.html">
+        <div class="row__icon">🛍️</div>
+        <div class="row__main">
+          <div class="row__name">Groceries at Fresh Mart</div>
+          <div class="row__meta">09:10 · Shopping</div>
+        </div>
+        <div class="row__amt">¥26.50</div>
+      </a>
+      <a class="card row" href="detail.html">
+        <div class="row__icon">☕</div>
+        <div class="row__main">
+          <div class="row__name">Oat latte</div>
+          <div class="row__meta">08:20 · Food</div>
+        </div>
+        <div class="row__amt">¥28.00</div>
+      </a>
+    </div>
+
+    <div class="empty-state hidden" data-state="empty">
+      <div class="empty-state__icon">🧾</div>
+      <div class="empty-state__text">No payments today<br><span style="font-size:12px">Log the first one in a few seconds</span></div>
+      <div class="empty-cta"><a class="btn btn--primary" href="add.html">Add your first payment</a></div>
+    </div>
+
+    <div class="toast show hidden" data-state="saved">Payment saved</div>
+    <div class="toast show hidden" data-state="deleted">Payment deleted</div>
+
+    <a class="fab" href="add.html">＋</a>
+
+    <div class="tab-bar">
+      <div class="tab-bar__item active"><span>🏠</span>Home</div>
+      <a class="tab-bar__item" href="summary.html"><span>📊</span>Summary</a>
+    </div>
+  </div>
+  <script src="../assets/interaction.js"></script>
+</body>
+</html>

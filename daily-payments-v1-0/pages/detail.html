@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment detail - Daily Payments prototype</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .hero { padding: 28px 16px 20px; text-align: center; }
+    .hero__amt { font-size: 36px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .hero__name { font-size: 14px; color: var(--color-text-secondary); margin-top: 6px; }
+    .kv { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--color-border-light); font-size: 14px; }
+    .kv:last-child { border-bottom: none; }
+    .kv__k { color: var(--color-text-tertiary); }
+    .kv__v { font-weight: 500; text-align: right; max-width: 210px; }
+    .acts { padding: 16px; }
+    .acts .btn { margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="nav-bar">
+      <a class="nav-bar__back" href="home.html">‹ Back</a>
+      <span class="nav-bar__title">Payment detail</span>
+      <span style="width:48px"></span>
+    </div>
+
+    <div class="hero">
+      <div class="hero__amt">¥32.00</div>
+      <div class="hero__name">Lunch at Green Bowl</div>
+      <div style="margin-top:10px"><span class="tag tag--primary">Food</span></div>
+    </div>
+
+    <div class="card">
+      <div class="kv"><span class="kv__k">Date</span><span class="kv__v">Fri, 13 Nov 2026</span></div>
+      <div class="kv"><span class="kv__k">Time</span><span class="kv__v">12:35</span></div>
+      <div class="kv"><span class="kv__k">Category</span><span class="kv__v">Food</span></div>
+      <div class="kv"><span class="kv__k">Note</span><span class="kv__v">Team lunch, paid by mobile wallet</span></div>
+      <div class="kv"><span class="kv__k">Source</span><span class="kv__v">Manually added</span></div>
+    </div>
+
+    <div class="acts">
+      <a class="btn btn--primary" href="edit.html">Edit payment</a>
+      <div class="btn btn--danger" id="btn-delete" data-open="#delete-confirm" style="border-radius:8px;cursor:pointer">Delete payment</div>
+    </div>
+
+    <div class="modal-overlay" id="delete-confirm">
+      <div class="modal-content">
+        <div class="modal-close" data-close>×</div>
+        <div class="card__title">Delete this payment?</div>
+        <p class="text-secondary" style="font-size:14px;margin-bottom:20px">¥32.00 · Lunch at Green Bowl. This cannot be undone.</p>
+        <div class="btn btn--danger" data-go="home.html?s=deleted" style="border-radius:8px;margin-bottom:8px;cursor:pointer">Delete payment</div>
+        <div class="btn btn--ghost" data-close style="justify-content:center">Cancel</div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/interaction.js"></script>
+</body>
+</html>

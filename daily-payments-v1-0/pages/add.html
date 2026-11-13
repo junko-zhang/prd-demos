@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add payment - Daily Payments prototype</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .amt-wrap { padding: 24px 16px 8px; }
+    .amt-label { font-size: 12px; color: var(--color-text-tertiary); margin-bottom: 8px; }
+    .amt-line { display: flex; align-items: baseline; gap: 8px; border-bottom: 2px solid var(--color-primary); padding-bottom: 8px; }
+    .amt-cur { font-size: 24px; font-weight: 600; }
+    .amt-input { flex: 1; font-size: 30px; font-weight: 700; border: none; background: transparent; font-variant-numeric: tabular-nums; }
+    .err { color: var(--color-error); font-size: 12px; padding: 8px 16px 0; }
+    body.invalid .amt-line { border-bottom-color: var(--color-error); }
+    .frow { display: flex; align-items: center; justify-content: space-between; padding: 16px; border-bottom: 1px solid var(--color-border-light); background-color: var(--color-bg-base); }
+    .frow__label { font-size: 14px; color: var(--color-text-secondary); }
+    .frow__value { font-size: 14px; font-weight: 500; }
+    .fgroup { margin-top: 12px; }
+    .fgroup .input { border: none; background: transparent; width: 100%; font-size: 14px; padding: 16px; }
+    .save-wrap { padding: 24px 16px; }
+    .cat-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 8px; border-bottom: 1px solid var(--color-border-light); font-size: 15px; cursor: pointer; }
+    .cat-item__check { color: var(--color-primary-dark); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="nav-bar">
+      <a class="nav-bar__back" href="home.html">‹ Back</a>
+      <span class="nav-bar__title">Add payment</span>
+      <span style="width:48px"></span>
+    </div>
+
+    <div class="amt-wrap">
+      <div class="amt-label">AMOUNT (CNY)</div>
+      <div class="amt-line">
+        <span class="amt-cur">¥</span>
+        <input class="amt-input" id="amount" inputmode="decimal" placeholder="0.00" aria-label="Amount">
+      </div>
+    </div>
+    <div class="err hidden" data-state="invalid">Enter an amount greater than 0.00. <a href="add.html" data-flow-ignore>Clear</a></div>
+
+    <div class="fgroup">
+      <div class="frow" id="btn-category" data-open="#category-picker" style="cursor:pointer">
+        <span class="frow__label">Category</span>
+        <span class="frow__value" id="cat-value">Food ▾</span>
+      </div>
+      <div class="frow" style="padding:0 16px">
+        <span class="frow__label" style="flex:none;margin-right:12px">Note</span>
+        <input class="input" id="note" maxlength="50" placeholder="Optional, up to 50 characters" style="border:none;background:transparent;text-align:right">
+      </div>
+      <div class="frow">
+        <span class="frow__label">When</span>
+        <span class="frow__value">Fri, 13 Nov · 12:35</span>
+      </div>
+    </div>
+
+    <div class="save-wrap">
+      <div class="btn btn--primary" id="btn-save">Save payment</div>
+    </div>
+
+    <div class="modal-overlay" id="category-picker">
+      <div class="modal-content">
+        <div class="modal-close" data-close>×</div>
+        <div class="card__title">Choose a category</div>
+        <div class="cat-item" data-cat="Food" data-close>🍜 Food <span class="cat-item__check">✓</span></div>
+        <div class="cat-item" data-cat="Transport" data-close>🚇 Transport</div>
+        <div class="cat-item" data-cat="Shopping" data-close>🛍️ Shopping</div>
+        <div class="cat-item" data-cat="Housing" data-close>🏠 Housing</div>
+        <div class="cat-item" data-cat="Entertainment" data-close>🎬 Entertainment</div>
+        <div class="cat-item" data-cat="Other" data-close>📌 Other</div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/interaction.js"></script>
+  <script>
+    var q = new URLSearchParams(location.search);
+    if (q.get('s') === 'invalid') document.body.classList.add('invalid');
+    Array.prototype.forEach.call(document.querySelectorAll('.cat-item'), function (el) {
+      el.addEventListener('click', function () {
+        document.getElementById('cat-value').textContent = el.getAttribute('data-cat') + ' ▾';
+      });
+    });
+    document.getElementById('btn-save').addEventListener('click', function () {
+      var v = document.getElementById('amount').value.trim();
+      if (!v || parseFloat(v) <= 0) {
+        location.href = 'add.html?s=invalid';
+        return;
+      }
+      location.href = 'home.html?s=saved';
+    });
+  </script>
+</body>
+</html>
